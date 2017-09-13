@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="calendar" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <div class="account">
@@ -12,11 +12,20 @@
     <div class="account_birthday"><calendar:formatDate value="${userJSP.birthday}" pattern="dd.MM.yyyy"/><br></div>
     Почта:
     <div class="account_email">${userJSP.email}<br></div>
-    Билеты:
-    <!--Список билетов-->
-    <div class="account_ticket">
 
-    </div>
+    <c:choose>
+        <c:when test="${userJSP.role == 'USER'}">
+            Билеты:
+            <!--Список билетов-->
+            <div class="account_ticket">
+
+            </div>
+        </c:when>
+        <c:otherwise>
+            <div class="admin">Администрирование</div>
+        </c:otherwise>
+    </c:choose>
+
 
     <div class="menu-account">
         <ul class="menu-login-ul">
