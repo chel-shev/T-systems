@@ -3,7 +3,7 @@
 <%@ taglib prefix="calendar" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <div class="account">
     <div class="account_title">ЛИЧНЫЙ КАБИНЕТ</div>
-    <br><br>
+    <br>
     Имя:
     <div class="account_first_name">${userJSP.first_name}<br></div>
     Фамилия:
@@ -12,17 +12,14 @@
     <div class="account_birthday"><calendar:formatDate value="${userJSP.birthday}" pattern="dd.MM.yyyy"/><br></div>
     Почта:
     <div class="account_email">${userJSP.email}<br></div>
-
+    <div class="account_ticket">Билеты:</div>
+    <!--Список билетов-->
     <c:choose>
         <c:when test="${userJSP.role == 'USER'}">
-            Билеты:
-            <!--Список билетов-->
-            <div class="account_ticket">
 
-            </div>
         </c:when>
         <c:otherwise>
-            <div class="admin">Администрирование</div>
+            <div class="admin">Администрирование: </div>
         </c:otherwise>
     </c:choose>
 
@@ -36,5 +33,41 @@
 </div>
 
 <script>
-    <%@include file="../../resources/js/account.js"%>
+    $("#logout").click(function () {
+        $.ajax({
+            url: 'user/logout',
+            type: 'post',
+            success: function (response) {
+                $('.account_page').html(response).show();
+                $('.user_name').text("\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044F\u0020\u007C\u0020\u0412\u0445\u043E\u0434");
+            }
+        });
+    });
+
+    $("#up").click(function () {
+        $(".account_page").toggle("slide", {
+            direction: "left"
+        }, 500);
+    });
+
+    $(".account_ticket").click(function () {
+        $.ajax({
+            url: 'ticket/get',
+            type: 'post',
+            success: function (response) {
+                $('.content').html(response)
+                    .show();
+            }
+        });
+    });
+
+    $(".admin").click(function () {
+        $.ajax({
+            url: 'user/menu',
+            type: 'post',
+            success: function (response) {
+                $(".admin_menu").html(response).fadeToggle(1100);
+            }
+        });
+    });
 </script>
