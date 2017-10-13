@@ -60,7 +60,7 @@
             url: 'ticket/get',
             type: 'post',
             success: function (response) {
-                if(response == ""){
+                if(String(response).replace(/\s+/g,' ') === " "){
                     $(".resp_info").text("\u0423\u0020\u0432\u0430\u0441\u0020\u043D\u0435\u0442\u0020\u0431\u0438\u043B\u0435\u0442\u043E\u0432\u002E")
                         .fadeIn(1000);
                     setTimeout(function () {
