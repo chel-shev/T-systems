@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="resources/css/car.css">
     <link rel="stylesheet" href="resources/css/ticket.css">
 
+
     <link rel="shortcut icon" href="resources/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="resources/css/date.css">
     <script src="resources/js/jquery-3.2.1.js"></script>
