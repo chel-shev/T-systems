@@ -32,7 +32,7 @@
     <div class="result_search_list" id="result_schedule">
     </div>
 </div>
-<div class="cols col-11 content">1</div>
+<div class="cols col-11 content"></div>
 
 <script>
     $.ajax({
@@ -64,7 +64,7 @@
                     $('#result_schedule').html(response);
                     setTimeout(function () {
                         $(".resp_info").fadeOut(1000);
-                    }, 2000);
+                    }, 0);
 
                 }
             }
