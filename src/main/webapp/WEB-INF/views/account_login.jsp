@@ -8,34 +8,34 @@
         </ul>
     </div>
     <div class="sign-in">
-        <form id="submit-in" action="/ferrovia/user/sing_in" method="post">
+        <form id="submit-in" action="user/sing_in" method="post">
             <div class="form-header">
                 <input type="email" class="form-input" name="email_in" id="email_in"
-                       placeholder="Электронная почта"/><br>
+                       placeholder="Электронная почта" required/><br>
                 <input type="password" class="form-input" name="password_in" id="password_in"
-                       placeholder="Пароль"/>
+                       placeholder="Пароль" required/>
             </div>
             <input type="submit" class="form-submit" value="Войти">
         </form>
     </div>
     <div class="sign-up">
-        <form id="submit-up" action="/ferrovia/user/sing_up" method="post">
+        <form id="submit-up" action="user/sing_up" method="post">
             <div class="form-header">
-                <input type="text" class="form-input" name="first_name_up" id="first_name_up" placeholder="Имя"/>
-                <input type="text" class="form-input" name="last_name_up" id="last_name_up" placeholder="Фамилия"/>
+                <input type="text" class="form-input" name="first_name_up" id="first_name_up" placeholder="Имя"
+                       required/>
+                <input type="text" class="form-input" name="last_name_up" id="last_name_up" placeholder="Фамилия"
+                       required/>
                 <input type="email" class="form-input" name="email_up" id="email_up"
-                       placeholder="Электронная почта"/>
+                       placeholder="Электронная почта" required/>
                 <input type="text" class="form-input" name="date_up" id="date_up"
-                       placeholder="День Рождения"/>
+                       placeholder="День Рождения" required/>
                 <input type="password" class="form-input" name="password_up" id="password_up"
-                       placeholder="Пароль"/>
+                       placeholder="Пароль" required/>
                 <input type="password" class="form-input" name="repeat_password_up"
-                       id="repeat_password_up" placeholder="Повторите пароль"/>
+                       id="repeat_password_up" placeholder="Повторите пароль" required/>
             </div>
             <input type="submit" class="form-submit" value="Зарегистрироваться">
         </form>
-    </div>
-    <div class="message">
     </div>
 </div>
 <script>
@@ -80,32 +80,33 @@
 
     $('#submit-in').submit(function (e) {
         e.preventDefault();
-        if ($('.form-input--noterror').length == 2) {
+        if ($('.form-input--noterror').length != 2) {
+            return false;
+        } else {
             $.ajax({
                 url: '/ferrovia/user/sing_in',
                 type: 'post',
                 data: $(this).serialize(),
                 success: function (response) {
-                    if (response === "") {
-                        $('.message').text('Check the correctness')
-                            .show()
-                            .removeClass('message--success')
-                            .addClass('message--error')
-                            .slideUp(5000);
-                    }
-                    else {
+                    if (response !== "") {
                         $('.account_page').html(response)
-                            .show()
                             .removeClass('message--error')
+                            .show("slide", {
+                                direction: "left"
+                            }, 500);
                         var fn = $(".account_first_name").text();
                         var ln = $(".account_last_name").text();
                         $('.user_name').text(fn + " " + ln.charAt(0) + ".");
+                    } else {
+                        $(".resp_info").text("\u041F\u0440\u043E\u0432\u0435\u0440\u044C\u0442\u0435\u0020\u043F\u0440\u0430\u0432\u0438\u043B\u044C\u043D\u043E\u0441\u0442\u044C\u0021")
+                            .fadeIn(1000);
+                        setTimeout(function () {
+                            $(".resp_info").fadeOut(1000);
+                        }, 4000);
                     }
+
                 }
             });
-        }
-        else {
-            return false;
         }
     });
 
@@ -142,25 +143,22 @@
                         if (response === "yes") {
                             if (val !== '' && rv_email.test(val)) {
                                 div.addClass('form-input-noterror').removeClass('form-input--error');
-                                $('.message').html("Email is correct!")
-                                    .show()
-                                    .removeClass('message--error')
-                                    .addClass('message--success')
-                                    .slideUp(5000);
                             }
                             else {
                                 div.removeClass('form-input-noterror').addClass('form-input--error');
-                                $('.message').html("Email is not correct!")
-                                    .show()
-                                    .removeClass('message--success')
-                                    .addClass('message--error');
+                                $(".resp_info").text("\u041F\u043E\u0447\u0442\u0430\u0020\u0432\u0432\u0435\u0434\u0435\u043D\u0430\u0020\u043D\u0435\u043F\u0440\u0430\u0432\u0438\u043B\u044C\u043D\u043E\u0021")
+                                    .fadeIn(1000);
+                                setTimeout(function () {
+                                    $(".resp_info").fadeOut(1000);
+                                }, 4000);
                             }
                         } else {
                             div.removeClass('form-input-noterror').addClass('form-input--error');
-                            $('.message').html("Email used!")
-                                .show()
-                                .removeClass('message--success')
-                                .addClass('message--error');
+                            $(".resp_info").text("\u041F\u043E\u0447\u0442\u0430\u0020\u0437\u0430\u043D\u044F\u0442\u0430\u0021")
+                                .fadeIn(1000);
+                            setTimeout(function () {
+                                $(".resp_info").fadeOut(1000);
+                            }, 4000);
                         }
 
                     }
@@ -193,23 +191,24 @@
 
     $('#submit-up').submit(function (e) {
         e.preventDefault();
-        if ($('.form-input-noterror').length == 5) {
+        if ($('.form-input-noterror').length != 5) {
+            return false;
+        } else {
             $.ajax({
                 url: '/ferrovia/user/sing_up',
                 type: 'post',
                 data: $(this).serialize(),
                 success: function (response) {
                     $('.account_page').html(response)
-                        .show()
                         .removeClass('message--error')
+                        .toggle("slide", {
+                            direction: "left"
+                        }, 500);
                     var fn = $(".account_first_name").text();
                     var ln = $(".account_last_name").text();
                     $('.user_name').text(fn + " " + ln.charAt(0) + ".");
                 }
             });
-        }
-        else {
-            return false;
         }
     });
 </script>
