@@ -50,19 +50,6 @@
         }
     });
 
-    $("#form-ticket").submit(function (e) {
-        e.preventDefault();
-        var form = $(this);
-        $.ajax({
-            url: "search/result",
-            type: "post",
-            data: form.serialize(),
-            success: function (response) {
-                $('#result_search_list').html(response)
-            }
-        });
-    });
-
     $("#form_search_ticket").submit(function (e) {
         $(".resp_info").text("\u0418\u0449\u0435\u043C\u002E\u002E\u002E")
             .fadeIn(1000);
