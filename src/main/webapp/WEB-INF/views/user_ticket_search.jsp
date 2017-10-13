@@ -71,7 +71,7 @@
                     $('#result_search_list').html(response);
                     setTimeout(function () {
                         $(".resp_info").fadeOut(1000);
-                    }, 2000);
+                    }, 0);
                 }
             }
         });
