@@ -1,0 +1,122 @@
+:root {
+    --train-black: #444;
+    --train-grey: #BBB;
+    --train-orange: #ff9308;
+    --train-white: #f6f6f6;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.image-logo {
+    color: var(--train-white);
+    font-family: Magistral-M, cursive;
+}
+
+.icon {
+    padding-left: 20px;
+    padding-top: 10px;
+    float: left;
+}
+
+.firm {
+    line-height: 30px;
+    float: left;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.ticket {
+    margin: 20px auto;
+    width: 700px;
+    height: 300px;
+    box-shadow: 4px 7px 20px 3px #b3b3b3;
+}
+
+.image {
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+    float: left;
+}
+
+.sity {
+    color: var(--train-black);
+    font-family: Magistral-B, cursive;
+    line-height: 50px;
+    width: 175px;
+    height: 50px;
+    float: left;
+    text-align: center;
+    border-bottom: 2px solid var(--train-black);
+}
+
+.train {
+    height: 50px;
+    width: 50px;
+    float: left;
+    text-align: center;
+    padding: 10px;
+}
+
+.info {
+    width: 400px;
+    height: 300px;
+    float: left;
+}
+
+.key_ticket {
+    padding-top: 10px;
+    padding-left: 10px;
+    float: left;
+    color: var(--train-black);
+    font-family: Magistral-M, cursive;
+    line-height: 22px;
+}
+
+.value {
+    padding-top: 10px;
+    padding-left: 10px;
+    line-height: 22px;
+    float: left;
+    color: var(--train-black);
+    font-family: Magistral-T, cursive;
+}
+
+.info-logo{
+    position: absolute;
+    bottom: -4px;
+    left: 5px;
+    color: var(--train-black);
+    font-family: Magistral-M, cursive;
+    height: 50px;
+}
+
+canvas{
+    bottom: 5px;
+    right: 5px;
+}
+
+.code{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.qr{
+    bottom: 0;
+    right: 0;
+    position: absolute;
+}
+
+.price{
+    width: 59px;
+    padding-left: 5px;
+    float: left;
+}
+
+.value-price{
+    font-family: Magistral-T, cursive;
+    float: left;
+}

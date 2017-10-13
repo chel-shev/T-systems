@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    margin: 2.5%;
+    width: 95%;
+    height: 90%;
+    box-shadow: 5px 5px 30px -5px #4c391d;
+    background-color: #fffeff;
+    position: relative;
+    min-width: 800px;
+    min-height: 450px;
+}
+
+.row{
+
+}
+
+.row:before, .row:after,
+.container:before, .container:after,
+.clear:before, .clear:after{
+    content: " ";
+    display: table;
+}
+
+.row:after,
+.container:after,
+.clear:after{
+    clear: both;
+}
+
+.cols{
+    float: left;
+    padding: 0;
+}
+
+.col-1 {
+    width: 6.25%;
+}
+
+.col-2 {
+    width: 12.50%;
+}
+
+.col-3 {
+    width: 18.75%;
+}
+
+.col-4 {
+    width: 25%;
+}
+
+.col-5 {
+    width: 31.25%;
+}
+
+.col-6 {
+    width: 37.50%;
+}
+
+.col-7 {
+    width: 43.75%;
+}
+
+.col-8 {
+    width: 50%;
+}
+
+.col-9 {
+    width: 56.25%;
+}
+
+.col-10 {
+    width: 62.50%;
+}
+
+.col-11 {
+    width: 68.75%;
+}
+
+.col-12 {
+    width: 75%;
+}
+
+.col-13 {
+    width: 81.25%;
+}
+
+.col-14 {
+    width: 87.50%;
+}
+
+.col-15 {
+    width: 93.75%;
+}
+
+.col-16 {
+    width: 100%;
+}

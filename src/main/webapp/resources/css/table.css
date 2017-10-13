@@ -1,0 +1,67 @@
+thead{
+    font-family: "Magistral-M", cursive;
+}
+
+tbody{
+    font-family: "Magistral-T", cursive;
+}
+
+table{
+    width: 100.1%;
+    overflow: scroll;
+    border-collapse: collapse;
+}
+
+th{
+    border: 1px solid var(--train-black);
+}
+
+.th-th-number{
+    width: 40px;
+    height: 40px;
+}
+
+.th-number{
+    width: 40px;
+}
+
+.td-line-name{
+    border: 1px solid var(--train-black);
+    width: calc(100% - 40px);
+    height: 30px;
+    padding-left: 5px;
+}
+
+.tr-data:hover{
+    background: var(--train-grey);
+    cursor: pointer;
+}
+
+
+.td-station-data{
+    border: 1px solid var(--train-black);
+    width: 30%;
+    height: 30px;
+    padding-left: 5px;
+}
+
+.td-station-name{
+    border: 1px solid var(--train-black);
+    width: 30%;
+    height: 30px;
+    padding-left: 5px;
+}
+
+.td-train-data{
+    border: 1px solid var(--train-black);
+    width: 45%;
+    height: 30px;
+    padding-left: 5px;
+}
+
+.td-train-name{
+    border: 1px solid var(--train-black);
+    width: 45%;
+    height: 30px;
+    padding-left: 5px;
+}

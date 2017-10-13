@@ -1,0 +1,75 @@
+.menu {
+    height: 50px;
+    width: 100%;
+    position: absolute;
+    display: none;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0);
+    bottom: 0;
+}
+
+.menu-add{
+    color: var(--train-white);
+    position: relative;
+    right: 0px;
+    display: inline;
+}
+
+.menu-ul {
+    margin: 0;
+    display: flex;
+    padding-left: 2%;
+}
+
+.menu-a {
+    line-height: 50px;
+    padding: 0 10px;
+    height: 50px;
+    color: var(--train-orange);
+    -webkit-transition: all 200ms ease-in;
+    -o-transition: all 200ms ease-in;
+    -moz-transition: all 200ms ease-in;
+}
+
+.menu-a:visited {
+    color: var(--train-orange);
+    text-decoration: none;
+}
+
+.menu-a:hover, .menu-a:active, .menu-a:focus path:hover{
+    text-decoration: none;
+    color: var(--train-white);
+}
+
+.menu-li {
+    cursor: pointer;
+    -webkit-transition: padding .05s linear;
+    -moz-transition: padding .05s linear;
+    -ms-transition: padding .05s linear;
+    -o-transition: padding .05s linear;
+    transition: padding .05s linear;
+    display: inline-block;
+}
+
+.form_item{
+    display: inline-block;
+}
+
+.menu-a:link {
+    color: var(--train-white);
+    text-decoration: none;
+}
+
+.header{
+    display: inline-block;
+}
+
+.menu-account{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 50px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}

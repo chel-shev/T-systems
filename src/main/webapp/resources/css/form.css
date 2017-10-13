@@ -1,0 +1,133 @@
+.form-input {
+    width: 80%;
+    margin: 2%;
+    border: 0;
+    background: var(--train-white);
+    height: 34px;
+    box-shadow: 0 0 2px 1px #242424;
+    font-family: 'Magistral-M', cursive;
+    padding-left: 5px;
+    transition: background 0.5s ease-out,
+    box-shadow 0.5s ease-out;
+}
+
+.form-input--error {
+    box-shadow: 0 0 4px 2px var(--train-red);
+}
+
+.form-input--noterror{
+
+}
+
+.form-submit{
+    cursor: pointer;
+    width: 40%;
+    height: 34px;
+    background: var(--train-black);
+    border: 0;
+    color: var(--train-orange);
+    margin-left: 50%;
+    margin-right: 10%;
+    font-family: 'Magistral-M', cursive;
+    font-size: 1em;
+    transition: color 0.5s ease-out;
+}
+
+.form-submit:hover{
+    color: var(--train-white);
+}
+
+
+.form_add {
+    width: 26%;
+    height: 34px;
+
+    text-align: center;
+    margin-left: 0;
+    display: inline-block;
+    cursor: pointer;
+    background: var(--train-black);
+    border: 0;
+    color: var(--train-orange);
+    font-family: 'Magistral-M', cursive;
+    font-size: 1em;
+    transition: color 0.5s ease-out;
+}
+.form_add:hover {
+    color: var(--train-white);
+}
+
+
+.form-input:hover {
+    box-shadow: 0 0 5px 1px var(--train-orange);
+}
+
+input::-webkit-input-placeholder {
+    color: #999999;
+}
+
+.sign-up{
+    display: none;
+}
+
+.menu-login {
+    height: 50px;
+    width: 100%;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0);
+}
+
+.menu-login-li {
+    cursor: pointer;
+    -webkit-transition: padding .05s linear;
+    -moz-transition: padding .05s linear;
+    -ms-transition: padding .05s linear;
+    -o-transition: padding .05s linear;
+    transition: padding .05s linear;
+    display: inline-block;
+}
+
+.menu-login-li.drop {
+    position: relative;
+}
+
+.menu-login-a:hover {
+    color: var(--train-orange)
+}
+
+.menu-login-a {
+    line-height: 50px;
+    padding: 0 20px;
+    height: 50px;
+    color: var(--train-white);
+    -webkit-transition: all 200ms ease-in;
+    -o-transition: all 200ms ease-in;
+    -moz-transition: all 200ms ease-in;
+}
+
+.menu-login-a:link {
+    color: var(--train-white);
+    text-decoration: none;
+}
+
+.menu-login-a:visited {
+    color: var(--train-white);
+    text-decoration: none;
+}
+
+.menu-login-a:hover, .menu-login-a:active, .menu-login-a:focus {
+    text-decoration: none;
+    color: var(--train-orange)
+}
+
+.message{
+}
+
+.message--error{
+    box-shadow: 0 0 4px 2px var(--train-red);
+}
+
+.message--success{
+    box-shadow: 0 0 4px 2px var(--train-green);
+}
+
