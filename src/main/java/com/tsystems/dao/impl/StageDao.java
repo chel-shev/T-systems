@@ -52,7 +52,6 @@ public class StageDao implements StageDaoAPI {
                 .setParameter("e", to)
                 .list();
         Station station = (Station) listStation.get(0);
-
         String q1 = "from Stage where to_station_id= :e and line_id=:l";
         List list = sessionFactory.getCurrentSession().createQuery(q1)
                 .setParameter("e", station)
