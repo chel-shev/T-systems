@@ -60,8 +60,16 @@
             url: 'ticket/get',
             type: 'post',
             success: function (response) {
-                $('.content').html(response)
-                    .show();
+                if(response == ""){
+                    $(".resp_info").text("\u0423\u0020\u0432\u0430\u0441\u0020\u043D\u0435\u0442\u0020\u0431\u0438\u043B\u0435\u0442\u043E\u0432\u002E")
+                        .fadeIn(1000);
+                    setTimeout(function () {
+                        $(".resp_info").fadeOut(1000);
+                    }, 4000);
+                }else {
+                    $('.content').html(response)
+                        .show();
+                }
             }
         });
     });
@@ -72,7 +80,13 @@
             type: 'post',
             success: function (response) {
                 $(".admin_menu").html(response).fadeToggle(1100);
+                $(".resp_info").text("\u041E\u0442\u043A\u0440\u044B\u0442\u0430\u0020\u043F\u0430\u043D\u0435\u043B\u044C\u0020\u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440\u0430\u0021")
+                    .fadeIn(1000);
+                setTimeout(function () {
+                    $(".resp_info").fadeOut(1000);
+                }, 4000);
             }
+
         });
     });
 </script>
