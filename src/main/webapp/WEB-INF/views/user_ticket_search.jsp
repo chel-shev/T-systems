@@ -64,6 +64,8 @@
     });
 
     $("#form_search_ticket").submit(function (e) {
+        $(".resp_info").text("\u0418\u0449\u0435\u043C\u002E\u002E\u002E")
+            .fadeIn(1000);
         e.preventDefault();
         var form = $(this);
         $.ajax({
@@ -71,7 +73,19 @@
             type: "post",
             data: form.serialize(),
             success: function (response) {
-                $('#result_search_list').html(response)
+                if (String(response).replace(/\s+/g, ' ') === " ") {
+                    $(".resp_info").text("\u0411\u0438\u043B\u0435\u0442\u043E\u0432\u0020\u043F\u043E\u0020\u0432\u044B\u0431\u0440\u0430\u043D\u043D\u044B\u043C\u0020\u043F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u0430\u043C\u0020\u043D\u0435\u0442\u0021")
+                        .fadeIn(1000);
+                    setTimeout(function () {
+                        $(".resp_info").fadeOut(1000);
+                    }, 4000);
+                    $('#result_search_list').html(response);
+                } else {
+                    $('#result_search_list').html(response);
+                    setTimeout(function () {
+                        $(".resp_info").fadeOut(1000);
+                    }, 2000);
+                }
             }
         });
     });
