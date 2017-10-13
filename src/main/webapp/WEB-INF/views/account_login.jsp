@@ -84,41 +84,38 @@
             return false;
         } else {
             $.ajax({
-                url: 'user/sing_in',
-                type: 'post',
-                data: $(this).serialize(),
-                success: function (response) {
-                    if (response !== "") {
-                        $('.account_page').html(response)
-                            .removeClass('message--error')
-                            .show("slide", {
-                                direction: "left"
-                            }, 500);
-                        var fn = $(".account_first_name").text();
-                        var ln = $(".account_last_name").text();
-                        $('.user_name').text(fn + " " + ln.charAt(0) + ".");
-                        $(".resp_info").text("\u0412\u0445\u043E\u0434\u0020\u0443\u0441\u043F\u0435\u0448\u043D\u043E\u0020\u0432\u044B\u043F\u043E\u043B\u043D\u0435\u043D\u0021\n")
-                            .fadeIn(1000);
-                        setTimeout(function () {
-                            $(".resp_info").fadeOut(1000);
-                        }, 4000);
+                    url: 'user/sing_in',
+                    type: 'post',
+                    data: $(this).serialize(),
+                    success: function (response) {
+                        if (response !== "") {
+                            $('.account_page').html(response)
+                                .removeClass('message--error')
+                                .show("slide", {
+                                    direction: "left"
+                                }, 500);
+                            var fn = $(".account_first_name").text();
+                            var ln = $(".account_last_name").text();
+                            $('.user_name').text(fn + " " + ln.charAt(0) + ".");
+                            $(".resp_info").text("\u0412\u0445\u043E\u0434\u0020\u0443\u0441\u043F\u0435\u0448\u043D\u043E\u0020\u0432\u044B\u043F\u043E\u043B\u043D\u0435\u043D\u0021\n")
+                                .fadeIn(1000);
+                            setTimeout(function () {
+                                $(".resp_info").fadeOut(1000);
+                            }, 4000);
+
+                        } else {
+                            $(".resp_info").text("\u041F\u0440\u043E\u0432\u0435\u0440\u044C\u0442\u0435\u0020\u043F\u0440\u0430\u0432\u0438\u043B\u044C\u043D\u043E\u0441\u0442\u044C\u0021")
+                                .fadeIn(1000);
+                            setTimeout(function () {
+                                $(".resp_info").fadeOut(1000);
+                            }, 4000);
+                        }
+
                     }
-
-                } else {
-                    $(
-                    ".resp_info").text("\u041F\u0440\u043E\u0432\u0435\u0440\u044C\u0442\u0435\u0020\u043F\u0440\u0430\u0432\u0438\u043B\u044C\u043D\u043E\u0441\u0442\u044C\u0021")
-                .fadeIn(1000);
-            setTimeout(function () {
-                $(".resp_info").fadeOut(1000);
-            }, 4000);
+                }
+            );
         }
-
-        }
-        }
-    );
-    }
-    })
-    ;
+    });
 
     $('#first_name_up,#last_name_up,#email_up,#password_up,#repeat_password_up').unbind().blur(function () {
         var id = $(this).attr('id');
