@@ -39,7 +39,7 @@ public class UserDao implements UserDaoAPI {
                 .list();
         if (list != null && !list.isEmpty()) {
             return (User) list.get(0);
-        }
+        }list.get(0);
         return null;
     }
 
