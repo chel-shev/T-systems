@@ -10,10 +10,6 @@ public interface UserDaoAPI {
 
     void addUser(User user);
 
-    boolean removeUser();
-
-    boolean updateUser();
-
     boolean checkEmail(String email);
 }
 
