@@ -14,6 +14,7 @@ public class LineController {
 
     @PostMapping(path = "/line/add")
     public ModelAndView addLine(String line) {
+
         lineService.addLine(line);
         ModelAndView modelAndView = new ModelAndView("list_line");
         modelAndView.addObject("lineList", lineService.getListStations());
